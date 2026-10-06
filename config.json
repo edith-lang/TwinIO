@@ -1,0 +1,110 @@
+{
+  "_comment": "TwinIO settings used for the results in README.md.",
+  "model_path": "models/velocity_net.pt",
+  "cache_dir": "cache",
+  "train": {
+    "window_s": 10.0,
+    "lr": 0.0003,
+    "warmup_epochs": 5,
+    "epochs": 60,
+    "_epochs": "(chosen)",
+    "batch": 32,
+    "weight_decay": 0.01,
+    "stride_s": 0.25,
+    "val_fraction": 0.2,
+    "noise_aug": 0.0,
+    "seed": 0,
+    "threads": 8
+  },
+  "imu": {
+    "_comment": "EuRoC ADIS16448 datasheet densities (imu0/sensor.yaml)",
+    "sigma_g": 0.00016968,
+    "sigma_a": 0.002,
+    "sigma_bg": 1.9393e-05,
+    "sigma_ba": 0.003
+  },
+  "filter": {
+    "_comment": "(chosen) initial covariance after launch from a known pose",
+    "init_att_std": 0.07489029300386174,
+    "init_vel_std": 0.05,
+    "init_pos_std": 0.05,
+    "init_bg_std": 0.22981753024041107,
+    "init_ba_std": 0.010219735759176132,
+    "static_acc_std": 0.1,
+    "q_scale_g": 0.8963266898498028,
+    "q_scale_a": 0.9079698251096512,
+    "q_scale_bg": 4.410450397599446,
+    "q_scale_ba": 0.29632016617528284,
+    "static_window_s": 1.0
+  },
+  "aid": {
+    "Tu": 1.0,
+    "use_kappa": true,
+    "gate": 11.34,
+    "_Tu": "(chosen) aiding interval T_u"
+  },
+  "usbl": {
+    "_comment": "(chosen) low-cost USBL, scaled to the EuRoC prototype",
+    "sigma_r": 0.1,
+    "sigma_ang": 0.0175,
+    "sigma_gps": 0.05,
+    "sound_speed": 1500.0,
+    "modem_delay": 0.3
+  },
+  "coop": {
+    "_comment": "(chosen) trigger budget sigma_trig on tr P_pos in m^2, channel slot, loss",
+    "sigma_trig": 1.0,
+    "T_slot": 2.0,
+    "T_safe": 30.0,
+    "loss_prob": 0.1,
+    "buffer_s": 10.0,
+    "resend_last_fix": true,
+    "beacon": true,
+    "beacon_band": [
+      0.5,
+      2.0
+    ],
+    "plan_smooth_s": 1.0,
+    "seed": 1
+  },
+  "scenario": {
+    "_comment": "(chosen) two AUVs = two held-out EuRoC flights, placed in separate survey blocks at depth; ASV on the surface",
+    "auvs": [
+      "MH_03_medium",
+      "MH_05_difficult"
+    ],
+    "offsets": [
+      [
+        0.0,
+        0.0,
+        -20.0
+      ],
+      [
+        30.0,
+        0.0,
+        -20.0
+      ]
+    ],
+    "asv_start": [
+      15.0,
+      0.0,
+      0.0
+    ]
+  },
+  "mppi": {
+    "K": 256,
+    "H": 20,
+    "dt": 0.5,
+    "lambda": 1.0,
+    "noise_w": 0.3,
+    "noise_v": 0.5,
+    "v_max": 2.0,
+    "w_max": 0.6,
+    "w_cov": 1.0,
+    "R_w": 0.1,
+    "R_v": 0.05,
+    "lambda_d": 0.1,
+    "w_comm": 1.0,
+    "R_oper": 60.0
+  }
+}
